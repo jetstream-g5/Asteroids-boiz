@@ -2,6 +2,7 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.display.MovieClip;
 	
 	/**
 	 * ...
@@ -18,8 +19,13 @@ package
 		
 		private function init(e:Event = null):void 
 		{
-			removeEventListener(Event.ADDED_TO_STAGE, init);
-			// entry point
+			restart();
+		}
+		
+		private function restart()
+		{
+			player = new Player();
+			addChild(player);
 		}
 		
 	}

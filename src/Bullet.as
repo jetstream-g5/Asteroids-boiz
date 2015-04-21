@@ -1,6 +1,5 @@
 package  
 {
-	import org.flashdevelop.utils.FlashConnect;
 	/**
 	 * ...
 	 * @author lorenzo
