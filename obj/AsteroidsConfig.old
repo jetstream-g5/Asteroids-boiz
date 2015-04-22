@@ -38,6 +38,7 @@
     <library-path append="true">
       <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\PlayerPlaceholder.swc</path-element>
       <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\Ruimteschip.swc</path-element>
+      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\playerArt.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>

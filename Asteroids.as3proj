@@ -52,8 +52,8 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <element path="lib\PlayerPlaceholder.swc" />
     <element path="lib\Ruimteschip.swc" />
+    <element path="lib\playeur.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

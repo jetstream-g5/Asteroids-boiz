@@ -10,12 +10,12 @@ package
 	public class Player extends MovieClip
 	{
 		
-		private var playerArt:PlayerPlaceholderClass;
+		private var playerArt:PlayerArt;
 
 		
 		public function Player()
 		{
-			playerArt = new PlayerPlaceholderClass();
+			playerArt = new PlayerArt();
 			
 			this.addChild(playerArt);
 			
