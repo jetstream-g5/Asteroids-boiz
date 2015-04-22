@@ -2,22 +2,25 @@ package
 {
 	import flash.display.MovieClip;
 	import flash.events.Event;
-	import flash.display.Sprite;
 	
 	/**
 	 * ...
 	 * @author lorenzo
 	 */
-	public class Player extends DestructibleObjects
+	public class Player extends MovieClip
 	{
 		
-		public var playerArt:PlayerPlaceholder;
+		private var playerArt:PlayerPlaceholderClass;
+
 		
-		public function Player() 
+		public function Player()
 		{
-			playerArt = new PlayerPlaceholder();
+			playerArt = new PlayerPlaceholderClass();
 			
 			this.addChild(playerArt);
+			
+			this.y = 300;
+			this.x = 350;
 		}
 		
 	}

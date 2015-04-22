@@ -8,8 +8,10 @@ package
 	 * ...
 	 * @author lorenzo
 	 */
-	public class Main extends Sprite 
+	public class Main extends MovieClip
 	{
+		
+		private var player:MovieClip;
 		
 		public function Main():void 
 		{
@@ -19,13 +21,13 @@ package
 		
 		private function init(e:Event = null):void 
 		{
-			restart();
-		}
-		
-		private function restart()
-		{
 			player = new Player();
 			addChild(player);
+			
+			if (contains(player))
+			{
+				trace("ik ben er");
+			}
 		}
 		
 	}

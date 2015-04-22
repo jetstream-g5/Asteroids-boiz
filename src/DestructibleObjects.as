@@ -1,5 +1,6 @@
 package  
 {
+	import flash.display.MovieClip;
 	/**
 	 * ...
 	 * @author lorenzo
