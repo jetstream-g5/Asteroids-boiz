@@ -17,7 +17,11 @@
     <define append="true">
       <name>CONFIG::timeStamp</name>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <value>'24-4-2015'</value>
+=======
+      <value>'24/04/2015'</value>
+>>>>>>> origin/master
 =======
       <value>'24/04/2015'</value>
 >>>>>>> origin/master

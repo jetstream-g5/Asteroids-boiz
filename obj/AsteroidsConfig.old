@@ -17,7 +17,11 @@
     <define append="true">
       <name>CONFIG::timeStamp</name>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <value>'24-4-2015'</value>
+=======
+      <value>'24/04/2015'</value>
+>>>>>>> origin/master
 =======
       <value>'24/04/2015'</value>
 >>>>>>> origin/master
@@ -41,8 +45,13 @@
     </source-path>
     <library-path append="true">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\Ruimteschip.swc</path-element>
       <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\playeur.swc</path-element>
+=======
+      <path-element>C:\Users\tom\School\Bewijzenmap\Periode4\(DIP)\Asteroids-boiz\lib\Ruimteschip.swc</path-element>
+      <path-element>C:\Users\tom\School\Bewijzenmap\Periode4\(DIP)\Asteroids-boiz\lib\playeur.swc</path-element>
+>>>>>>> origin/master
 =======
       <path-element>C:\Users\tom\School\Bewijzenmap\Periode4\(DIP)\Asteroids-boiz\lib\Ruimteschip.swc</path-element>
       <path-element>C:\Users\tom\School\Bewijzenmap\Periode4\(DIP)\Asteroids-boiz\lib\playeur.swc</path-element>

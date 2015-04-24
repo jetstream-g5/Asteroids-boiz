@@ -3,9 +3,13 @@ package
 	import flash.display.MovieClip;
 	import flash.events.Event;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	import flash.geom.Point;
 	import flash.events.KeyboardEvent;
 	import flash.ui.Keyboard;
+=======
+	import flash.events.KeyboardEvent;
+>>>>>>> origin/master
 =======
 	import flash.events.KeyboardEvent;
 >>>>>>> origin/master
@@ -26,6 +30,7 @@ package
 		public function Player()
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.addEventListener(Event.ADDED_TO_STAGE, init);
 			controlDir = new Point(0, 0);
 			playerArt = new PlayerArt();
@@ -36,6 +41,13 @@ package
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 			
+=======
+			makePlayer();
+			
+			addEventListener(Event.ADDED_TO_STAGE, init);
+		}
+			
+>>>>>>> origin/master
 		private function init(e:Event):void
 		{
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
@@ -60,6 +72,7 @@ package
 			{
 				playerArt.rotation -= 20;
 			}
+<<<<<<< HEAD
 		}
 		
 				private function init(e:Event):void
@@ -157,6 +170,8 @@ package
 				controlDir.x = 1;
 			}
 		
+=======
+>>>>>>> origin/master
 		}
 		
 	}
