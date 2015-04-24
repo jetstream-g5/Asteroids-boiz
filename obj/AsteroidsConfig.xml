@@ -16,7 +16,11 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'22-4-2015'</value>
+<<<<<<< HEAD
+      <value>'24-4-2015'</value>
+=======
+      <value>'24/04/2015'</value>
+>>>>>>> origin/master
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -32,16 +36,16 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\src</path-element>
+      <path-element>C:\Users\tom\School\Bewijzenmap\Periode4\(DIP)\Asteroids-boiz\src</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\Ruimteschip.swc</path-element>
-      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\playeur.swc</path-element>
+      <path-element>C:\Users\tom\School\Bewijzenmap\Periode4\(DIP)\Asteroids-boiz\lib\Ruimteschip.swc</path-element>
+      <path-element>C:\Users\tom\School\Bewijzenmap\Periode4\(DIP)\Asteroids-boiz\lib\playeur.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\src\Main.as</path-element>
+    <path-element>C:\Users\tom\School\Bewijzenmap\Periode4\(DIP)\Asteroids-boiz\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
