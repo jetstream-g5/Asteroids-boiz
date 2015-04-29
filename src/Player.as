@@ -15,7 +15,9 @@ package
 		private var playerArt:Ship;
 		private var speed:Number = 2;
 		private var controlDir:Point;
-		private var friction:Number = 2;
+		private var friction:Point = new Point();
+		private var xMove:Number;
+		private var yMove:Number;
 
   public function Player()
   {
@@ -46,8 +48,8 @@ package
 
 		if (e.keyCode == Keyboard.W)
 		{
-			this.y += friction;
-			this.x += friction;
+		
+			controlDir.y = 0;
 		}
 		
 		if (e.keyCode == Keyboard.D)
@@ -77,7 +79,7 @@ package
 	
 	private function onKeyDown(e:KeyboardEvent):void
 	{
-			//speed = controlDir.y * -5;
+		/*	speed = controlDir.y * -5;
 			speed = 10;
 			var radian:Number = this.rotation * Math.PI / 180;
 			var xMove:Number = Math.cos(radian);
@@ -87,61 +89,77 @@ package
 		{
 			this.y += yMove * speed;
 			this.x += xMove * speed;
-		}
-		
-		/*if (this.y > stage.stageHeight)
+		}*/
+				
+		if (e.keyCode == Keyboard.D || e.keyCode == 39)
 		{
-			this.y = 0;
-		}
-		else if (this.y < stage.stageHeight)
+			//speler drukt d in
+			controlDir.x = 1;
+		}			
+		if (e.keyCode == Keyboard.A || e.keyCode == 37)
 		{
-			stage.stageHeight;
+			//speler drukt a in
+			controlDir.x = -1;
 		}
-		if (this.x > stage.stageWidth)
+		if (e.keyCode == Keyboard.W)
 		{
-			this.x = 0;
-		}
-		else if (this.x < stage.stageWidth)
-		{
-			this.x = stage.stageWidth;
-		}
-*/
-		
-		if (e.keyCode == Keyboard.D)
-			{
-				//speler drukt d in
-				controlDir.x = 1;
-			}
+			controlDir.y = -1;
 			
-			if (e.keyCode == 39)
-			{
-				//speler drukt right arrow in
-				controlDir.x = 1;
-			}
 			
-			if (e.keyCode == Keyboard.A)
-			{
-				//speler drukt a in
-				controlDir.x = -1;
-			}
+			friction.x = xMove * speed * 0.6;
+			friction.y = yMove * speed * 0.6;
+		}//end onkeydown
 			
-			if (e.keyCode == 37)
-			{
-				//speler drukt left arrow in
-				controlDir.x = -1;
-			}
 	}
 	
 		private function loop(e:Event):void
 		{
-			playerArt.rotation += controlDir.x * 3;
-			/*speed = controlDir.y * -5;
+			this.rotation += controlDir.x * 3;
+			speed = controlDir.y * -5;
 			var radian:Number = this.rotation * Math.PI / 180;
-			var xMove:Number = Math.cos(radian);
-			var yMove:Number = Math.sin(radian);
+			xMove = Math.cos(radian);
+			yMove = Math.sin(radian);
 			this.y += yMove * speed;
-			this.x += xMove * speed;*/
-		}
+			this.x += xMove * speed;
+			
+			
+			this.x += friction.x;
+			this.y += friction.y;
+			
+			if(friction.x > 0)
+			{
+				friction.x -= 0.05;
+			}else if (friction.x < 0)
+			{
+				friction.x += 0.05;
+			}
+			
+			if(friction.y > 0)
+			{
+				friction.y -= 0.05;
+			}else if (friction.y < 0)
+			{
+				friction.y += 0.05;
+			}
+			
+			if (this.y > stage.stageHeight)
+				{
+					this.y = 0;
+				}
+			else if (this.y < 0)
+				{
+					this.y = stage.stageHeight;
+				}
+				
+			if (this.x > stage.stageWidth)
+				{
+					this.x = 0;
+				}
+			else if (this.x < 0)
+				{
+					this.x = stage.stageWidth;
+				}
+		}//end loop
 	
  }
 
