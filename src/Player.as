@@ -12,10 +12,11 @@ package
   */
  public class Player extends MovieClip
  {
-  private var playerArt:PlayerArt;
-  
-	private var controlDir:Point;
-  
+		private var playerArt:Ship;
+		private var speed:Number = 2;
+		private var controlDir:Point;
+		private var friction:Number = 2;
+
   public function Player()
   {
    makePlayer();
@@ -33,7 +34,7 @@ package
    
   private function makePlayer()  
   {
-   playerArt = new PlayerArt();  
+   playerArt = new Ship();  
    this.addChild(playerArt);    
    this.y = 300;
    this.x = 350; 	
@@ -42,6 +43,13 @@ package
    
 	private function onKeyUp(e:KeyboardEvent):void
 	{
+
+		if (e.keyCode == Keyboard.W)
+		{
+			this.y += friction;
+			this.x += friction;
+		}
+		
 		if (e.keyCode == Keyboard.D)
 			{
 				//speler laat d los
@@ -69,6 +77,36 @@ package
 	
 	private function onKeyDown(e:KeyboardEvent):void
 	{
+			//speed = controlDir.y * -5;
+			speed = 10;
+			var radian:Number = this.rotation * Math.PI / 180;
+			var xMove:Number = Math.cos(radian);
+			var yMove:Number = Math.sin(radian);
+		
+		if (e.keyCode == Keyboard.W)
+		{
+			this.y += yMove * speed;
+			this.x += xMove * speed;
+		}
+		
+		/*if (this.y > stage.stageHeight)
+		{
+			this.y = 0;
+		}
+		else if (this.y < stage.stageHeight)
+		{
+			stage.stageHeight;
+		}
+		if (this.x > stage.stageWidth)
+		{
+			this.x = 0;
+		}
+		else if (this.x < stage.stageWidth)
+		{
+			this.x = stage.stageWidth;
+		}
+*/
+		
 		if (e.keyCode == Keyboard.D)
 			{
 				//speler drukt d in
@@ -94,10 +132,16 @@ package
 			}
 	}
 	
-	private function loop(e:Event):void
-	{
-		playerArt.rotation += controlDir.x * 3;
-	}
+		private function loop(e:Event):void
+		{
+			playerArt.rotation += controlDir.x * 3;
+			/*speed = controlDir.y * -5;
+			var radian:Number = this.rotation * Math.PI / 180;
+			var xMove:Number = Math.cos(radian);
+			var yMove:Number = Math.sin(radian);
+			this.y += yMove * speed;
+			this.x += xMove * speed;*/
+		}
 	
  }
 

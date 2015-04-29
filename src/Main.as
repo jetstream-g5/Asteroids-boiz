@@ -26,7 +26,7 @@ package
 			
 			if (contains(player))
 			{
-				trace("ik ben er");
+				//trace("ik ben er");
 			}
 		}
 		
