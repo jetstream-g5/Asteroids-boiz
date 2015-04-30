@@ -75,6 +75,10 @@ package
 				//speler laat left arrow los
 				controlDir.x = 0;
 			}
+		if (e.keyCode == Keyboard.I)
+		{
+			playerArt.visible = true;
+		}
 	}
 	
 	private function onKeyDown(e:KeyboardEvent):void
@@ -90,7 +94,12 @@ package
 			this.y += yMove * speed;
 			this.x += xMove * speed;
 		}*/
-				
+		
+		if (e.keyCode == Keyboard.I)
+		{
+			playerArt.visible = false;
+		}
+		
 		if (e.keyCode == Keyboard.D || e.keyCode == 39)
 		{
 			//speler drukt d in
@@ -140,25 +149,25 @@ package
 			}else if (friction.y < 0)
 			{
 				friction.y += 0.05;
-			}
+			}// end friction
 			
-			if (this.y > stage.stageHeight)
+			if(this.y > stage.stageHeight + 60)
 				{
 					this.y = 0;
 				}
-			else if (this.y < 0)
+			else if (this.y < -60)
 				{
 					this.y = stage.stageHeight;
 				}
 				
-			if (this.x > stage.stageWidth)
+			if (this.x > stage.stageWidth + 60)
 				{
 					this.x = 0;
 				}
-			else if (this.x < 0)
+			else if (this.x < -60)
 				{
 					this.x = stage.stageWidth;
-				}
+				}//end stagepos
 		}//end loop
 	
  }
