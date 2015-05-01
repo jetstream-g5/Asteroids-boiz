@@ -4,7 +4,7 @@ package
  import flash.events.Event;
  import flash.events.KeyboardEvent;
  import flash.geom.Point;
- import flash.ui.Keyboard
+ import flash.ui.Keyboard;
  
  /**
   * ...
@@ -12,16 +12,18 @@ package
   */
  public class Player extends MovieClip
  {
-		private var playerArt:Ship;
+		public var playerArt:Ship;
 		private var speed:Number = 2;
 		private var controlDir:Point;
 		private var friction:Point = new Point();
 		private var xMove:Number;
 		private var yMove:Number;
+		private var playerShoot: Shoot = new Shoot();
 
   public function Player()
   {
    makePlayer();
+   trace("he did something2");
    
    addEventListener(Event.ADDED_TO_STAGE, init);
   }
@@ -32,12 +34,13 @@ package
 		stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 		stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 		this.addEventListener(Event.ENTER_FRAME, loop);
+		addChild(playerShoot);
   }
    
-  private function makePlayer()  
+  private function makePlayer():void  
   {
    playerArt = new Ship();  
-   this.addChild(playerArt);    
+   this.addChild(playerArt);   
    this.y = 300;
    this.x = 350; 	
    controlDir = new Point(0, 0);

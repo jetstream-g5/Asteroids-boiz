@@ -3,6 +3,9 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.display.MovieClip;
+	import flash.events.KeyboardEvent;
+	
+	
 	
 	/**
 	 * ...
@@ -10,8 +13,9 @@ package
 	 */
 	public class Main extends MovieClip
 	{
+		private var bullet:Bullet;
 		
-		private var player:MovieClip;
+		public var player:MovieClip;
 		
 		public function Main():void 
 		{
@@ -21,14 +25,13 @@ package
 		
 		private function init(e:Event = null):void 
 		{
+			
 			player = new Player();
 			addChild(player);
 			
-			if (contains(player))
-			{
-				//trace("ik ben er");
-			}
 		}
+		
+		
 		
 	}
 	

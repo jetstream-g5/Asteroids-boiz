@@ -55,6 +55,7 @@
     <element path="lib\Ruimteschip.swc" />
     <element path="lib\playeur.swc" />
     <element path="lib\MWEH.swc" />
+    <element path="lib\bulletArt.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
