@@ -24,7 +24,7 @@ package
 		{
 			
 			/*bullet = new Bullet();
-			addChild(bullet);	
+			addChild(bullet);
 			trace("testmakestuff");*/
 		}
 		
