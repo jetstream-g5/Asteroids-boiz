@@ -21,6 +21,8 @@ package
 		{
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
+			
+			stage.frameRate = 60;
 		}
 		
 		private function init(e:Event = null):void 
