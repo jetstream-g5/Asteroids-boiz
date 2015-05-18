@@ -12,19 +12,20 @@ package
   */
  public class Player extends MovieClip
  {
+		public var bullets:Array;
+	 
 		public var playerArt:Ship;
 		private var speed:Number = 2;
 		private var controlDir:Point;
 		private var friction:Point = new Point();
 		private var xMove:Number;
 		private var yMove:Number;
-		private var playerShoot: Shoot = new Shoot();
 
   public function Player()
   {
-   makePlayer();
-   trace("he did something2");
-   
+	makePlayer();
+	trace("he did something2");
+	
    addEventListener(Event.ADDED_TO_STAGE, init);
   }
    
@@ -34,7 +35,8 @@ package
 		stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 		stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 		this.addEventListener(Event.ENTER_FRAME, loop);
-		addChild(playerShoot);
+		
+		bullets = new Array();
   }
    
   private function makePlayer():void  
@@ -120,9 +122,23 @@ package
 			
 			friction.x = xMove * speed * 0.6;
 			friction.y = yMove * speed * 0.6;
-		}//end onkeydown
+		}
+		
+		if (e.keyCode == Keyboard.SPACE)
+		{
+			bullets.push(new Bullet());
+			stage.addChild(bullets[bullets.length - 1]);
 			
-	}
+			bullets[bullets.length -1].x = this.x;
+			bullets[bullets.length -1].y = this.y;
+			bullets[bullets.length -1].rotation = this.rotation + 90;
+			
+			
+		}
+		
+		
+			
+	}//end onkeydown
 	
 		private function loop(e:Event):void
 		{
