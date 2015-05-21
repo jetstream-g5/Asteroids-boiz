@@ -12,7 +12,7 @@ package
   */
  public class Player extends MovieClip
  {
-		public var bullets:Array;
+		//public var bullets:Array;
 	 
 		public var playerArt:Ship;
 		private var speed:Number = 2;
@@ -24,7 +24,6 @@ package
   public function Player()
   {
 	makePlayer();
-	trace("he did something2");
 	
    addEventListener(Event.ADDED_TO_STAGE, init);
   }
@@ -36,7 +35,7 @@ package
 		stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 		this.addEventListener(Event.ENTER_FRAME, loop);
 		
-		bullets = new Array();
+		//bullets = new Array();
   }
    
   private function makePlayer():void  
@@ -103,6 +102,7 @@ package
 		if (e.keyCode == Keyboard.I)
 		{
 			playerArt.visible = false;
+			trace("invisible");
 		}
 		
 		if (e.keyCode == Keyboard.D || e.keyCode == 39)
@@ -123,20 +123,6 @@ package
 			friction.x = xMove * speed * 0.6;
 			friction.y = yMove * speed * 0.6;
 		}
-		
-		if (e.keyCode == Keyboard.SPACE)
-		{
-			bullets.push(new Bullet());
-			stage.addChild(bullets[bullets.length - 1]);
-			
-			bullets[bullets.length -1].x = this.x;
-			bullets[bullets.length -1].y = this.y;
-			bullets[bullets.length -1].rotation = this.rotation + 90;
-			
-			
-		}
-		
-		
 			
 	}//end onkeydown
 	

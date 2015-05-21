@@ -10,32 +10,24 @@ package
 	 */
 	public class Shoot extends MovieClip
 	{	
+		public var bullets:Array;
 		private var bullet: bulletArt = new bulletArt();
-		
 		
 		public function Shoot() 
 		{
-			//makeBullet();
 			trace("he did something");
-			this.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
-		public function makeBullet(e:Event)
+		private function init(e:Event):void
 		{
+			removeEventListener(Event.ADDED_TO_STAGE, init);
+			//stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 			
-			/*bullet = new Bullet();
-			addChild(bullet);
-			trace("testmakestuff");*/
+			bullets = new Array();
 		}
 		
-		private function onKeyDown(e:KeyboardEvent):void
-		{
-			if (e.keyCode == Keyboard.SPACE)
-			{
-				trace("pew");
-				//makeBullet();
-			}
-		}
+
 		
 	}
 
