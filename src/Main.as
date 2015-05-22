@@ -13,7 +13,6 @@ package
 	{
 		private var bullet:Bullet;
 		private var player:MovieClip;
-		private var obstacles:Array;
 		
 		public function get deObstacles():Array
 		{
@@ -34,12 +33,15 @@ package
 			obstacles = new Array();
 		}
 		
+		private var obstacles:Array;
+		
 		private function onKeyDown(e:KeyboardEvent):void
 		{
 			
 			if (e.keyCode == Keyboard.SPACE)
 			{
 				trace("space");
+				trace(obstacles.length);
 				spawnBullets();
 			}
 		}
@@ -50,7 +52,8 @@ package
 			for (var i:int = 0; i < 0; i++)
 			{
 				obstacles.push(new Bullet);
-				var newIndex:int = obstacles.length - 1;
+				var newIndex:int = obstacles.length /*- 1*/;
+				
 				addChild(obstacles[newIndex]);
 			}
 		
