@@ -12,11 +12,16 @@ package
 	public class Main extends MovieClip
 	{
 		private var bullet:Bullet;
-		private var player:MovieClip;
+		private var player:Player;
 		
 		public function get deObstacles():Array
 		{
 			return obstacles;
+		}
+		
+		public function get deBullets():Array
+		{
+			return bullets;
 		}
 		
 		public function Main():void 
@@ -31,32 +36,47 @@ package
 			player = new Player();
 			addChild(player);
 			obstacles = new Array();
+			bullets = new Array();
 		}
 		
 		private var obstacles:Array;
+		private var bullets:Array;
+		private var timer:int = 0;
 		
 		private function onKeyDown(e:KeyboardEvent):void
 		{
 			
 			if (e.keyCode == Keyboard.SPACE)
 			{
-				trace("space");
-				trace(obstacles.length);
+				addEventListener(Event.ENTER_FRAME, loop);
+				//trace("space");
+			//	trace(bullets.length);
 				spawnBullets();
+				trace(timer);
+			}
+		}
+		
+		private function loop(e:Event):void
+		{
+			timer++;
+			var b:Array = deBullets;
+			if (timer > 30)
+			{
+				b.splice(b.indexOf(this), 1);
 			}
 		}
 		
 		private function spawnBullets():void
 		{
 			
-			for (var i:int = 0; i < 0; i++)
+			for (var i:int = 0; i < 1; i++)
 			{
-				obstacles.push(new Bullet);
-				var newIndex:int = obstacles.length /*- 1*/;
+				bullets.push(new Bullet(player));
+				var newIndex:int = bullets.length -1;
 				
-				addChild(obstacles[newIndex]);
+				addChild(bullets[newIndex]);
 			}
-		
+			
 		}
 	}
 	
