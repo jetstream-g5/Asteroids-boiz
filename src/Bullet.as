@@ -21,6 +21,8 @@ package
 			this.addChild(bullet_Art);
 			bullet_Art.rotation += 90;
 			
+			this.scaleX = 0.3;
+			this.scaleY = 0.5;
 			this.x = player.x;
 			this.y = player.y;
 			

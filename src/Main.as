@@ -45,16 +45,14 @@ package
 		
 		private function onKeyDown(e:KeyboardEvent):void
 		{
-			
-			if (e.keyCode == Keyboard.SPACE)
-			{
-				addEventListener(Event.ENTER_FRAME, loop);
-				//trace("space");
-			//	trace(bullets.length);
-				spawnBullets();
-				trace(timer);
-			}
+				if (e.keyCode == Keyboard.SPACE)
+				{
+					addEventListener(Event.ENTER_FRAME, loop);
+					spawnBullets();
+					//trace(timer);
+				}
 		}
+		
 		
 		private function loop(e:Event):void
 		{
@@ -63,6 +61,7 @@ package
 			if (timer > 30)
 			{
 				b.splice(b.indexOf(this), 1);
+				timer = 0;
 			}
 		}
 		
