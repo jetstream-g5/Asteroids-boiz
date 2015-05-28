@@ -30,6 +30,7 @@ package
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+
 			addEventListener(Event.ENTER_FRAME, loop);
 			//addEventListener("removeBullet", removeBullet);
 		}
