@@ -55,8 +55,6 @@ package
 				{
 					addEventListener(Event.ENTER_FRAME, loop);
 					spawnBullets();
-					//trace(timer);
-					trace(bullets.length);
 				}
 		}
 		
@@ -75,7 +73,6 @@ package
 		
 		private function bulletRemove(e:Event):void 
 		{
-			trace(bullets.length);
 			removeChild(bullets[0]);
 			bullets.splice(0, 1);
 		}
@@ -95,7 +92,6 @@ package
 				var newIndex:int = bullets.length -1;
 				
 				addChild(bullets[newIndex]);
-				trace(bullets.length);
 			}
 			
 		}
