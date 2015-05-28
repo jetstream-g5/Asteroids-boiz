@@ -33,6 +33,8 @@ package
 
 			addEventListener(Event.ENTER_FRAME, loop);
 			//addEventListener("removeBullet", removeBullet);
+			
+			stage.frameRate = 60;
 		}
 		
 		private function init(e:Event = null):void 
@@ -93,6 +95,7 @@ package
 				var newIndex:int = bullets.length -1;
 				
 				addChild(bullets[newIndex]);
+				trace(bullets.length);
 			}
 			
 		}
