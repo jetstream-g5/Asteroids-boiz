@@ -2,6 +2,8 @@ package
 {
 	import flash.display.MovieClip;
 	import flash.events.Event;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 	/**
 	 * ...
 	 * @author lorenzo
@@ -12,11 +14,19 @@ package
 		private var xmove:Number;
 		private var ymove:Number;
 		private var player:Player;
+		private var timer:Timer;
+		public static const REMOVE_BULLET: String = "removeBullet";
+		
+		
 		
 		public function Bullet(p:Player)
 		{
 			player = p;
 			
+			
+			timer = new Timer(1000, 1);
+			timer.addEventListener(TimerEvent.TIMER_COMPLETE, handleTimer)
+			timer.start();
 			bullet_Art = new bulletArt();
 			this.addChild(bullet_Art);
 			bullet_Art.rotation += 90;
@@ -37,6 +47,11 @@ package
 			addEventListener(Event.ENTER_FRAME, update);
 			
 			
+		}
+		
+		private function handleTimer(e:TimerEvent):void 
+		{
+			dispatchEvent(new Event(REMOVE_BULLET, true));
 		}
 		
 		/*var r:Number = bullet_Art.rotation * Math.PI * 180;

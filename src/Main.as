@@ -3,6 +3,7 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.display.MovieClip;
+	import flash.events.EventDispatcher;
 	import flash.events.KeyboardEvent;
 	import flash.ui.Keyboard;
 	/**
@@ -29,6 +30,8 @@ package
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			addEventListener(Event.ENTER_FRAME, loop);
+			//addEventListener("removeBullet", removeBullet);
 		}
 		
 		private function init(e:Event = null):void 
@@ -50,20 +53,35 @@ package
 					addEventListener(Event.ENTER_FRAME, loop);
 					spawnBullets();
 					//trace(timer);
+					trace(bullets.length);
 				}
 		}
 		
 		
 		private function loop(e:Event):void
 		{
-			timer++;
+			/*timer++;
 			var b:Array = deBullets;
-			if (timer > 30)
+			/if (timer > 30)
 			{
-				b.splice(b.indexOf(this), 1);
+				b.splice(0, 1);
 				timer = 0;
-			}
+			}*/
+			stage.addEventListener(Bullet.REMOVE_BULLET, bulletRemove);
 		}
+		
+		private function bulletRemove(e:Event):void 
+		{
+			trace(bullets.length);
+			removeChild(bullets[0]);
+			bullets.splice(0, 1);
+		}
+		
+		/*private function removeBullet(event:Event):void
+		{
+			
+			
+		}*/
 		
 		private function spawnBullets():void
 		{
