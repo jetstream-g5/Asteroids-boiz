@@ -12,10 +12,10 @@ package
 	 private var player:Player;
 	 private var speed:Number;
 	 
-	public class Enemies 
+	public class Enemy 
 	{
 		
-		public function Enemies() 
+		public function Enemy() 
 		{
 			player = new Player();
 			
