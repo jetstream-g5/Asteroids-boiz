@@ -6,9 +6,9 @@ package
 	
 	/**
 	 * ...
-	 * @author lorenzo
+	 * @author 
 	 */
-	public class Enemy1 
+	public class Enemy1 extends Enemy2
 	{
 		
 		public function Enemy1() 

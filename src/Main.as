@@ -5,15 +5,16 @@ package
 	import flash.display.MovieClip;
 	import flash.events.EventDispatcher;
 	import flash.events.KeyboardEvent;
+	import flash.geom.Point;
 	import flash.ui.Keyboard;
 	/**
 	 * ...
-	 * @author lorenzo Kappa
+	 * @author
 	 */
 	public class Main extends MovieClip
 	{
 		private var bullet:Bullet;
-		private var player:Player;
+		public static var player:Player;
 		private var enemies:Enemy;
 		public var enemy2:Enemy2 = new Enemy2();
 		
@@ -32,13 +33,13 @@ package
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-
 			addEventListener(Event.ENTER_FRAME, loop);
 			//addEventListener("removeBullet", removeBullet);
 			
 			//enemy op het scherm zetten
 			addChild(enemy2);
 			
+			//framerate is 60
 			stage.frameRate = 60;
 		}
 		
@@ -56,11 +57,11 @@ package
 		
 		private function onKeyDown(e:KeyboardEvent):void
 		{
-				if (e.keyCode == Keyboard.SPACE)
-				{
-					addEventListener(Event.ENTER_FRAME, loop);
-					spawnBullets();
-				}
+			if (e.keyCode == Keyboard.SPACE)
+			{
+				addEventListener(Event.ENTER_FRAME, loop);
+				spawnBullets();
+			}
 		}
 		
 		
@@ -74,7 +75,6 @@ package
 				timer = 0;
 			}*/
 			stage.addEventListener(Bullet.REMOVE_BULLET, bulletRemove);
-			
 			enemy2.vit.dx = player.x - enemy2.x;
 			enemy2.vit.dy = player.y - enemy2.y;
 			
@@ -87,7 +87,7 @@ package
 		
 		private function bulletRemove(e:Event):void 
 		{
-			removeChild(bullets[0]);
+			//removeChild(bullets[0]);
 			bullets.splice(0, 1);
 		}
 		

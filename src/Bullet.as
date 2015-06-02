@@ -6,7 +6,7 @@ package
 	import flash.events.TimerEvent;
 	/**
 	 * ...
-	 * @author lorenzo
+	 * @author
 	 */
 	public class Bullet extends MovieClip
 	{
@@ -22,10 +22,8 @@ package
 		public function Bullet(p:Player)
 		{
 			player = p;
-			
-			
 			timer = new Timer(1000, 1);
-			timer.addEventListener(TimerEvent.TIMER_COMPLETE, handleTimer)
+			timer.addEventListener(TimerEvent.TIMER_COMPLETE, handleTimer);
 			timer.start();
 			bullet_Art = new bulletArt();
 			this.addChild(bullet_Art);

@@ -1,9 +1,8 @@
 package  
 {
-	import flash.display.MovieClip;
 	/**
 	 * ...
-	 * @author lorenzo
+	 * @author
 	 */
 	public class DestructibleObjects 
 	{
@@ -11,8 +10,6 @@ package
 		public function DestructibleObjects() 
 		{
 			
-		}
-		
+		}	
 	}
-
 }

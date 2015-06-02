@@ -3,15 +3,14 @@ package
 	import flash.display.MovieClip;
 	/**
 	 * ...
-	 * @author lorenzo
+	 * @author
 	 */
 	public class Obstacles extends MovieClip
- 	{	
+	{
+		
 		public function Obstacles() 
 		{
 			
 		}
-		
 	}
-
 }

@@ -6,11 +6,11 @@ package
 	import flash.events.KeyboardEvent;
 	/**
 	 * ...
-	 * @author lorenzo
+	 * @author 
 	 */
 	public class Shoot extends MovieClip
 	{	
-		public var bullets:Array;
+		public var bullets:Array = [];
 		private var bullet: bulletArt = new bulletArt();
 		
 		public function Shoot() 
@@ -27,7 +27,6 @@ package
 			bullets = new Array();
 		}
 		
-
 		
 	}
 
