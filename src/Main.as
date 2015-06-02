@@ -14,6 +14,8 @@ package
 	{
 		private var bullet:Bullet;
 		private var player:Player;
+		private var enemies:Enemy;
+		public var enemy2:Enemy2 = new Enemy2();
 		
 		public function get deObstacles():Array
 		{
@@ -33,6 +35,9 @@ package
 
 			addEventListener(Event.ENTER_FRAME, loop);
 			//addEventListener("removeBullet", removeBullet);
+			
+			//enemy op het scherm zetten
+			addChild(enemy2);
 			
 			stage.frameRate = 60;
 		}
@@ -69,6 +74,15 @@ package
 				timer = 0;
 			}*/
 			stage.addEventListener(Bullet.REMOVE_BULLET, bulletRemove);
+			
+			enemy2.vit.dx = player.x - enemy2.x;
+			enemy2.vit.dy = player.y - enemy2.y;
+			
+			//enemy2 speed is 2.5
+			enemy2.vit.r = 2.5;
+			
+			enemy2.x += enemy2.vit.dx;
+			enemy2.y += enemy2.vit.dy;
 		}
 		
 		private function bulletRemove(e:Event):void 
