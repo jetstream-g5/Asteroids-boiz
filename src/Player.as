@@ -136,6 +136,9 @@ package
 			this.y += yMove * speed;
 			this.x += xMove * speed;
 			
+			//positioneren player
+			this.pos.dx = this.x;
+			this.pos.dy = this.y
 			
 			this.x += friction.x;
 			this.y += friction.y;
