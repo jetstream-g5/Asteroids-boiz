@@ -83,6 +83,11 @@ package
 			{
 				playerArt.visible = true;
 			}
+			
+			if ( e.keyCode == Keyboard.SHIFT)
+			{
+				
+			}
 		}
 		
 		private function onKeyDown(e:KeyboardEvent):void

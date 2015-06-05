@@ -16,7 +16,11 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
+<<<<<<< HEAD
       <value>'05/06/2015'</value>
+=======
+      <value>'5-6-2015'</value>
+>>>>>>> origin/master
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -32,6 +36,7 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
+<<<<<<< HEAD
       <path-element>C:\Users\tom\School\Bewijzenmap\Periode4\(DIP)\Asteroids-boiz\src</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
@@ -44,6 +49,20 @@
   </compiler>
   <file-specs>
     <path-element>C:\Users\tom\School\Bewijzenmap\Periode4\(DIP)\Asteroids-boiz\src\Main.as</path-element>
+=======
+      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\src</path-element>
+      <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
+    </source-path>
+    <library-path append="true">
+      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\MWEH.swc</path-element>
+      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\bulletArt.swc</path-element>
+      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\asteriodArt.swc</path-element>
+      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\asteroids.swc</path-element>
+    </library-path>
+  </compiler>
+  <file-specs>
+    <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\src\Main.as</path-element>
+>>>>>>> origin/master
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>

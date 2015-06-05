@@ -16,7 +16,11 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
+<<<<<<< HEAD
       <value>'05/06/2015'</value>
+=======
+      <value>'5-6-2015'</value>
+>>>>>>> origin/master
     </define>
     <define append="true">
       <name>CONFIG::air</name>
