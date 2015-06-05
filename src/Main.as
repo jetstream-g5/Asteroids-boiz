@@ -62,16 +62,13 @@ package
 		
 		private function init(e:Event = null):void 
 		{
-<<<<<<< HEAD
 			
 			makeBackground();
 			
-			player = new Player();
-			addChild(player);
-=======
 			pl = new Player();
 			addChild(pl);
->>>>>>> origin/master
+			pl = new Player();
+			addChild(pl);
 			obstacles = new Array();
 			bullets = new Array();
 			enemy2 = new Array();
@@ -85,7 +82,7 @@ package
 		private var timer:int = 0;
 		private var enemy2:Array;
 		
-		private function makeBackground()
+		private function makeBackground():void
 		{
 			BGNumber =  Math.round(Math.random( )*3);
 			
