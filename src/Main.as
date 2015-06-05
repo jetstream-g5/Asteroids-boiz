@@ -1,5 +1,6 @@
 package 
 {
+	import flash.display.Bitmap;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.display.MovieClip;
@@ -12,7 +13,21 @@ package
 	 * @author
 	 */
 	public class Main extends MovieClip
-	{
+	{	
+		[Embed(source = "../lib/BG1.jpg")]
+		public var BG1:Class;
+		public var pic:Bitmap = new BG1;
+		
+		[Embed(source="../lib/BG2.jpg")]
+		public var BG2:Class;
+		public var pic2:Bitmap = new BG2;
+		
+		[Embed(source = "../lib/BG3P.png")] 
+		public var BG3P:Class;
+		public var pic3P:Bitmap = new BG3P;
+		
+		public var BGNumber:Number;
+		
 		private var bullet:Bullet;
 		public static var player:Player;
 		private var enemies:Enemy;
@@ -45,6 +60,9 @@ package
 		
 		private function init(e:Event = null):void 
 		{
+			
+			makeBackground();
+			
 			player = new Player();
 			addChild(player);
 			obstacles = new Array();
@@ -55,12 +73,57 @@ package
 		private var bullets:Array;
 		private var timer:int = 0;
 		
+		private function makeBackground()
+		{
+			BGNumber =  Math.round(Math.random( )*3);
+			
+			if (BGNumber == 1)
+			{
+				if (pic2.stage)
+				{
+					removeChild(pic2);
+				}
+				else if (pic3P.stage)
+				{
+					removeChild(pic3P);
+				}
+				addChildAt(pic,0);
+			}
+			
+			else if (BGNumber == 2)
+			{
+				if (pic.stage)
+				{
+					removeChild(pic);
+				}
+				else if (pic3P.stage)
+				{
+					removeChild(pic3P);
+				}
+				addChildAt(pic2,0);
+			}
+			
+			else
+			{
+				if (pic2.stage)
+				{
+					removeChild(pic2);
+				}
+				else if (pic.stage)
+				{
+					removeChild(pic);
+				}
+				addChildAt(pic3P,0);
+			}
+		}
+		
 		private function onKeyDown(e:KeyboardEvent):void
 		{
 			if (e.keyCode == Keyboard.SPACE)
 			{
 				addEventListener(Event.ENTER_FRAME, loop);
 				spawnBullets();
+				makeBackground();
 			}
 		}
 		
