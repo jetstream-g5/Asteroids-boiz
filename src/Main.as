@@ -14,9 +14,10 @@ package
 	public class Main extends MovieClip
 	{
 		private var bullet:Bullet;
-		public static var player:Player;
+		private var pl:Player;
 		private var enemies:Enemy;
-		public var enemy2:Enemy2 = new Enemy2();
+		private var scoreboard:Scoreboard;
+		//public var enemy2:Enemy2 = new Enemy2();
 		
 		public function get deObstacles():Array
 		{
@@ -33,11 +34,12 @@ package
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-			addEventListener(Event.ENTER_FRAME, loop);
+			addEventListener(Event.ENTER_FRAME, enemy2Loop);
+			//addEventListener(Event.ENTER_FRAME, collisionHandler);
 			//addEventListener("removeBullet", removeBullet);
 			
 			//enemy op het scherm zetten
-			addChild(enemy2);
+			//spawnEnemy2();
 			
 			//framerate is 60
 			stage.frameRate = 60;
@@ -45,70 +47,79 @@ package
 		
 		private function init(e:Event = null):void 
 		{
-			player = new Player();
-			addChild(player);
+			pl = new Player();
+			addChild(pl);
 			obstacles = new Array();
 			bullets = new Array();
+			enemy2 = new Array();
+			
+			scoreboard = new Scoreboard();
+			addChild(scoreboard);
 		}
 		
 		private var obstacles:Array;
 		private var bullets:Array;
 		private var timer:int = 0;
+		private var enemy2:Array;
 		
 		private function onKeyDown(e:KeyboardEvent):void
 		{
 			if (e.keyCode == Keyboard.SPACE)
 			{
-				addEventListener(Event.ENTER_FRAME, loop);
+				//addEventListener(Event.ENTER_FRAME, loop);
 				spawnBullets();
 			}
 		}
 		
+		private var enemy2Timer:int = 0;
 		
-		private function loop(e:Event):void
+		private function enemy2Loop(e:Event):void
 		{
-			/*timer++;
-			var b:Array = deBullets;
-			/if (timer > 30)
+			enemy2Timer ++;
 			{
-				b.splice(0, 1);
-				timer = 0;
-			}*/
-			stage.addEventListener(Bullet.REMOVE_BULLET, bulletRemove);
-			enemy2.vit.dx = player.x - enemy2.x;
-			enemy2.vit.dy = player.y - enemy2.y;
-			
-			//enemy2 speed is 2.5
-			enemy2.vit.r = 2.5;
-			
-			enemy2.x += enemy2.vit.dx;
-			enemy2.y += enemy2.vit.dy;
+				if (enemy2Timer == 60)
+				{
+					spawnEnemy2();
+					enemy2Timer = 0;
+				}
+			}
 		}
 		
 		private function bulletRemove(e:Event):void 
 		{
-			//removeChild(bullets[0]);
 			bullets.splice(0, 1);
 		}
-		
-		/*private function removeBullet(event:Event):void
-		{
-			
-			
-		}*/
 		
 		private function spawnBullets():void
 		{
 			
 			for (var i:int = 0; i < 1; i++)
 			{
-				bullets.push(new Bullet(player));
+				bullets.push(new Bullet(pl));
 				var newIndex:int = bullets.length -1;
 				
 				addChild(bullets[newIndex]);
 			}
 			
 		}
+		
+		private function spawnEnemy2():void
+		{
+			
+			for (var i:int = 0; i < 2; i++)
+			{
+				enemy2.push(new Enemy2(pl));
+				var newIndex:int = enemy2.length - 1;
+				
+				addChild(enemy2[newIndex]);
+			}
+		}
+		
+	/*	private function collisionHandler():void
+		{
+			
+		}*/
+		
 	}
 	
 }

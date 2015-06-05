@@ -13,7 +13,7 @@ package
 		private var bullet_Art:bulletArt;
 		private var xmove:Number;
 		private var ymove:Number;
-		private var player:Player;
+		private var pl:Player;
 		private var timer:Timer;
 		public static const REMOVE_BULLET: String = "removeBullet";
 		
@@ -21,7 +21,7 @@ package
 		
 		public function Bullet(p:Player)
 		{
-			player = p;
+			pl = p;
 			timer = new Timer(1000, 1);
 			timer.addEventListener(TimerEvent.TIMER_COMPLETE, handleTimer);
 			timer.start();
@@ -31,10 +31,10 @@ package
 			
 			this.scaleX = 0.3;
 			this.scaleY = 0.5;
-			this.x = player.x;
-			this.y = player.y;
+			this.x = pl.x;
+			this.y = pl.y;
 			
-			this.rotation = player.rotation;
+			this.rotation = pl.rotation;
 			
 			var r:Number = this.rotation * Math.PI / 180;
 			xmove = Math.cos(r);
@@ -57,7 +57,7 @@ package
 		ymove = Math.sin(r);*/
 		
 		
-		public function update(e:Event):void
+		private function update(e:Event):void
 		{
 			this.x += xmove * 20;
 			this.y += ymove * 20;
