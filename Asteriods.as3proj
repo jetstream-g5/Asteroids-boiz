@@ -52,11 +52,11 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <element path="lib\MWEH.swc" />
     <element path="lib\bulletArtArt.swc" />
-    <element path="lib\bulletArt.swc" />
     <element path="lib\asteriodArt.swc" />
     <element path="lib\asteroids.swc" />
+    <element path="lib\Onderzeer_v1.swc" />
+    <element path="lib\kogel_v1.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

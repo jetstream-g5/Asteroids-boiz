@@ -19,6 +19,7 @@ package
 		private var friction:Point = new Point();
 		private var xMove:Number;
 		private var yMove:Number;
+		private var pl:Player;
 		
 		//hier een variabele gemaakt voor Vector
 		public var pos:Vector2D = new Vector2D(0,0);
@@ -44,7 +45,9 @@ package
 			playerArt = new Ship();  
 			this.addChild(playerArt);   
 			this.y = 300;
-			this.x = 350; 	
+			this.x = 350; 
+			this.scaleX = 0.65;
+			this.scaleY = 0.65;
 			controlDir = new Point(0, 0);
 		}
 		

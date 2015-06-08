@@ -22,15 +22,19 @@ package
 		public var BG2:Class;
 		public var pic2:Bitmap = new BG2;
 		
-		[Embed(source = "../lib/BG3P.png")] 
-		public var BG3P:Class;
-		public var pic3P:Bitmap = new BG3P;
+		[Embed(source = "../lib/BG3.jpg")] 
+		public var BG3:Class;
+		public var pic3:Bitmap = new BG3;
+		
+		[Embed(source = "../lib/BG4.jpg")]
+		public var BG4:Class;
+		public var pic4:Bitmap = new BG4;
 		
 		public var BGNumber:Number;
 		
 		private var bullet:Bullet;
 		private var pl:Player;
-		private var enemies:Enemy;
+		private var enemies:Enemy2;
 		private var scoreboard:Scoreboard;
 		//public var enemy2:Enemy2 = new Enemy2();
 		
@@ -92,9 +96,13 @@ package
 				{
 					removeChild(pic2);
 				}
-				else if (pic3P.stage)
+				else if (pic3.stage)
 				{
-					removeChild(pic3P);
+					removeChild(pic3);
+				}
+				else if (pic4.stage)
+				{
+					removeChild(pic4);
 				}
 				addChildAt(pic,0);
 			}
@@ -105,14 +113,18 @@ package
 				{
 					removeChild(pic);
 				}
-				else if (pic3P.stage)
+				else if (pic3.stage)
 				{
-					removeChild(pic3P);
+					removeChild(pic3);
+				}
+				else if (pic4.stage)
+				{
+					removeChild(pic4);
 				}
 				addChildAt(pic2,0);
 			}
 			
-			else
+			else if (BGNumber == 2)
 			{
 				if (pic2.stage)
 				{
@@ -122,7 +134,28 @@ package
 				{
 					removeChild(pic);
 				}
-				addChildAt(pic3P,0);
+				else if (pic4.stage)
+				{
+					removeChild(pic4);
+				}
+				addChildAt(pic3,0);
+			}
+			
+			else
+			{
+				if (pic.stage)
+				{
+					removeChild(pic);
+				}
+				else if (pic2.stage)
+				{
+					removeChild(pic2);
+				}
+				else if (pic3.stage)
+				{
+					removeChild(pic3);
+				}
+				addChildAt(pic4, 0);
 			}
 		}
 		
@@ -132,7 +165,7 @@ package
 			{
 				//addEventListener(Event.ENTER_FRAME, loop);
 				spawnBullets();
-				makeBackground();
+				trace(BGNumber);
 			}
 		}
 		
@@ -146,6 +179,7 @@ package
 				{
 					spawnEnemy2();
 					enemy2Timer = 0;
+					makeBackground();
 				}
 			}
 		}
@@ -155,6 +189,11 @@ package
 			bullets.splice(0, 1);
 		}
 		
+		private function RipEnemy():void
+		{
+			//HitTestObject
+		}
+		
 		private function spawnBullets():void
 		{
 			
@@ -162,7 +201,6 @@ package
 			{
 				bullets.push(new Bullet(pl));
 				var newIndex:int = bullets.length -1;
-				
 				addChild(bullets[newIndex]);
 			}
 			
@@ -171,7 +209,7 @@ package
 		private function spawnEnemy2():void
 		{
 			
-			for (var i:int = 0; i < 2; i++)
+			for (var i:int = 0; i < 1; i++)
 			{
 				enemy2.push(new Enemy2(pl));
 				var newIndex:int = enemy2.length - 1;
@@ -179,11 +217,6 @@ package
 				addChild(enemy2[newIndex]);
 			}
 		}
-		
-	/*	private function collisionHandler():void
-		{
-			
-		}*/
 		
 	}
 	
