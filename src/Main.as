@@ -53,9 +53,9 @@ package
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-			addEventListener(Event.ENTER_FRAME, enemy2Loop);
+			addEventListener(Event.ENTER_FRAME, gameLoop);
 			//addEventListener(Event.ENTER_FRAME, collisionHandler);
-			//addEventListener("removeBullet", removeBullet);
+			addEventListener("removeBullet", removeBullet);
 			
 			//enemy op het scherm zetten
 			//spawnEnemy2();
@@ -66,7 +66,11 @@ package
 		
 		private function init(e:Event = null):void 
 		{
-			
+			restart();
+		}
+		
+		private function restart():void
+		{		
 			makeBackground();
 			
 			pl = new Player();
@@ -75,7 +79,6 @@ package
 			addChild(pl);
 			obstacles = new Array();
 			bullets = new Array();
-			enemy2 = new Array();
 			
 			scoreboard = new Scoreboard();
 			addChild(scoreboard);
@@ -84,7 +87,6 @@ package
 		private var obstacles:Array;
 		private var bullets:Array;
 		private var timer:int = 0;
-		private var enemy2:Array;
 		
 		private function makeBackground():void
 		{
@@ -165,33 +167,69 @@ package
 			{
 				//addEventListener(Event.ENTER_FRAME, loop);
 				spawnBullets();
-				trace(BGNumber);
 			}
 		}
 		
 		private var enemy2Timer:int = 0;
 		
-		private function enemy2Loop(e:Event):void
+		private function gameLoop(e:Event):void
 		{
 			enemy2Timer ++;
+			if (enemy2Timer == 60)
 			{
-				if (enemy2Timer == 60)
+				spawnEnemy2();
+				enemy2Timer = 0;
+				makeBackground();
+			}
+			hitTestEnemy();
+		}
+		
+		private function destroyBullet(bullet:Bullet):void
+		{
+			bullet.Destroy();
+			bullets.splice(bullets.indexOf(bullet), 1);
+			removeChild(bullet);
+		}
+		
+		private function removeBullet(e:Event):void 
+		{
+			var bullet:Bullet = e.target as Bullet;
+			bullet.Destroy();
+			bullets.splice(bullets.indexOf(bullet), 1);
+			removeChild(bullet);
+		}
+		
+		private function RipEnemy(enemy:Enemy2):void
+		{
+			enemy.DestroyEnemy();
+			obstacles.splice(obstacles.indexOf(enemy), 1);
+			removeChild(enemy);
+		}
+		
+		private function hitTestEnemy():void
+		{
+			for (var i:int = 0; i < obstacles.length; i++)
+			{
+				var rip:Boolean = false;
+				for (var j:int = 0; j < bullets.length; j++)
 				{
-					spawnEnemy2();
-					enemy2Timer = 0;
-					makeBackground();
+					if (bullets[j].hitTestObject(obstacles[i]))
+					{
+						rip = true;
+						destroyBullet(bullets[j]);
+					}
+				}
+				
+				if (pl.hitTestObject(obstacles[i]))
+				{
+					rip = true;
+				}
+				if (rip)
+				{
+					scoreboard.updateScore(50);
+					RipEnemy(obstacles[i]);
 				}
 			}
-		}
-		
-		private function bulletRemove(e:Event):void 
-		{
-			bullets.splice(0, 1);
-		}
-		
-		private function RipEnemy():void
-		{
-			//HitTestObject
 		}
 		
 		private function spawnBullets():void
@@ -211,10 +249,10 @@ package
 			
 			for (var i:int = 0; i < 1; i++)
 			{
-				enemy2.push(new Enemy2(pl));
-				var newIndex:int = enemy2.length - 1;
+				obstacles.push(new Enemy2(pl));
+				var newIndex:int = obstacles.length - 1;
 				
-				addChild(enemy2[newIndex]);
+				addChild(obstacles[newIndex]);
 			}
 		}
 		

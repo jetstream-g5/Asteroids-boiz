@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'8-6-2015'</value>
+      <value>'9-6-2015'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -37,9 +37,10 @@
     </source-path>
     <library-path append="true">
       <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\asteriodArt.swc</path-element>
-      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\asteroids.swc</path-element>
-      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\Onderzeer_v1.swc</path-element>
       <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\kogel_v1.swc</path-element>
+      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\Onderzeer v1.swc</path-element>
+      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\fly_fish_swc.swc</path-element>
+      <path-element>C:\Users\WendyAdmin\Desktop\School\bewijzenmap\Periode4\dip\asteroids\Asteroids-boiz\lib\crawl_swc.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
